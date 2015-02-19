@@ -1,0 +1,243 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".calculadora"
+    android:background="@drawable/background_color">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/NumericOuput"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textIsSelectable="true"
+        android:gravity="end"
+        android:background="@color/silver"
+        android:text="@string/default_output"
+        android:textColor="@color/black"
+        android:textSize="50sp" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NumericOuput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="10dp"
+        android:id="@+id/buttons">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:background="@color/dark_red"
+            android:clickable="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton"
+                android:src="@drawable/ic_action_backspace"
+                android:background="#00000000"
+                android:contentDescription="@string/ContentDescription" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="9"
+                android:id="@+id/bt9"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_numbers_free"
+                android:tag="num" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="8"
+                android:id="@+id/bt8"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_numbers_free"
+                android:tag="num"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="7"
+                android:id="@+id/bt7"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_numbers_free"
+                android:tag="num"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="+"
+                android:id="@+id/btplus"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_operation_free"
+                android:tag="op"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="6"
+                android:id="@+id/bt6"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_numbers_free"
+                android:tag="num"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="5"
+                android:id="@+id/bt5"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_numbers_free"
+                android:tag="num"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="4"
+                android:id="@+id/b4"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_numbers_free"
+                android:tag="num"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="-"
+                android:id="@+id/btminus"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_operation_free"
+                android:tag="op"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="3"
+                android:id="@+id/bt3"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_numbers_free"
+                android:tag="num"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="2"
+                android:id="@+id/bt2"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_numbers_free"
+                android:tag="num"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="1"
+                android:id="@+id/bt1"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_numbers_free"
+                android:tag="num"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="*"
+                android:id="@+id/btmult"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_operation_free"
+                android:tag="op"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="/"
+                android:id="@+id/btdiv"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_operation_free"
+                android:tag="op"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="0"
+                android:id="@+id/bt0"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_numbers_free"
+                android:tag="num"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="."
+                android:id="@+id/btdot"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_operation_free"
+                android:tag="op"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="="
+                android:id="@+id/btanswer"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:background="@drawable/button_operation_free"
+                android:tag="resu"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:text=""
+        android:id="@+id/advice"
+        android:layout_below="@+id/buttons"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"/>
+</RelativeLayout>
