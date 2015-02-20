@@ -22,13 +22,41 @@ public class DeleteButtonEvent extends ButtonEvent implements View.OnTouchListen
         if (event.getActionMasked() == MotionEvent.ACTION_CANCEL || event.getActionMasked() == MotionEvent.ACTION_UP) {
             row.setBackgroundResource(R.color.dark_red);
             if (event.getActionMasked() == MotionEvent.ACTION_UP) {
-                out.setText(R.string.default_output);
-                est.BackSpaceTwice++;
-                if (est.BackSpaceTwice == 2) {
-                    est.Operador1 = 0;
-                    est.Operando = "";
-                    est.Operador2 = 0;
+                String L = est.getLast();
+                String S = out.getText().toString();
+                if (est.BackSpaceTwice==1) {
                     est.setLast("");
+                    out.setText("0");
+                    est.Operando="";
+                } else {
+                    if (Estructure.IsOperation(L)) {
+                        est.setLast("");
+                        out.setText("0");
+                        est.Operando="";
+                    } else if (Estructure.IsNumeric(L)) {
+                        out.setText("0");
+                        est.setLast("0");
+                        est.BackSpaceTwice++;
+                        est.advice.setText("");
+                    } else {
+                        if (L.equals(".")) {
+                            out.setText("0");
+                            est.setLast("0");
+                            est.BackSpaceTwice++;
+                            est.advice.setText("");
+                        } else { // it's "=" or ""
+                            if (L.equals("=")) {
+                                out.setText("0");
+                                est.setLast("0");
+                                est.BackSpaceTwice++;
+                                est.advice.setText("");
+                            } else {
+                                out.setText("0");
+                                est.setLast("0");
+                                est.advice.setText("");
+                            }
+                        }
+                    }
                 }
             }
         } else {

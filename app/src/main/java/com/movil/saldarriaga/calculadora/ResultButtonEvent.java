@@ -25,19 +25,34 @@ public class ResultButtonEvent extends ButtonEvent implements View.OnTouchListen
         if (event.getActionMasked() == MotionEvent.ACTION_CANCEL || event.getActionMasked() == MotionEvent.ACTION_UP) {
             bt.setBackgroundResource(R.drawable.button_operation_free);
             if (event.getActionMasked() == MotionEvent.ACTION_UP) {
-                if (est.Operando!="") {
-                    try {
-                        est.Operador2 = Float.parseFloat(out.getText().toString());
-                        est.Operador1 = est.Execute();
-                        if (est.Operador1 == 0.0f)
-                            out.setText("0");
-                        else
-                            out.setText(est.Operador1 + "");
-                        est.Operando = "";
-                        est.Operador2 = 0f;
-                        est.setLast(bt.getText().toString());
-                    } catch (Exception ex) {
-                        advice.setText(R.string.syntax_error);
+                String L = est.getLast();
+                String S = out.getText().toString();
+                String B = bt.getText().toString();
+                if (Estructure.IsOperation(L)) {
+                    est.setLast(B);
+                    est.advice.setText(R.string.syntax_error);
+                    est.Operando="";
+                } else if (Estructure.IsNumeric(L)) {
+                    if (!est.Operando.equals("")) {
+                        try {
+                            est.Operador2 = Float.parseFloat(S);
+                            out.setText(est.Execute() + "");
+                            est.Operando = "";
+                            est.setLast(B);
+                        } catch (Exception ex) {
+                            est.Operando = "";
+                            est.setLast("");
+                            est.advice.setText(R.string.syntax_error);
+                        }
+                    }
+                } else {
+                    if (L.equals(".")) {
+                        est.advice.setText(R.string.syntax_error);
+                        est.Operando="";
+                        est.setLast(B);
+                    } else { // it's "=" or ""
+                        est.Operando=B;
+                        est.setLast(B);
                     }
                 }
             }

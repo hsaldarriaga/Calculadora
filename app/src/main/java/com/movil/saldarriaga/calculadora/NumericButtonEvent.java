@@ -21,12 +21,29 @@ public class NumericButtonEvent extends ButtonEvent implements View.OnTouchListe
         if (event.getActionMasked() == MotionEvent.ACTION_CANCEL || event.getActionMasked() == MotionEvent.ACTION_UP) {
             bt.setBackgroundResource(R.drawable.button_numbers_free);
             if (event.getActionMasked() == MotionEvent.ACTION_UP) {
-                if (out.getText().toString().equals("0") || !ButtonEvent.IsNumeric(est.getLast())) {
-                    out.setText(bt.getText().toString());
+                String L = est.getLast();
+                String S = out.getText().toString();
+                String B = bt.getText().toString();
+                if (Estructure.IsOperation(L)) {
+                    est.setLast(B);
+                    out.setText(B);
+                } else if (Estructure.IsNumeric(L)) {
+                    if (!S.equals("0")) {
+                        est.setLast(B);
+                        out.setText(S + B);
+                    } else {
+                        est.setLast(B);
+                        out.setText(B);
+                    }
                 } else {
-                    out.setText(out.getText().toString()+bt.getText().toString());
+                    if (L.equals(".")) {
+                        est.setLast(B);
+                        out.setText(S+B);
+                    } else { // it's "=" or ""
+                        est.setLast(B);
+                        out.setText(B);
+                    }
                 }
-                est.setLast(bt.getText().toString());
             }
         } else {
             bt.setBackgroundResource(R.drawable.button_numbers_hold);

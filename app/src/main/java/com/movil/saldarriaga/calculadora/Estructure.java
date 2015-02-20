@@ -22,14 +22,13 @@ public class Estructure {
         advice.setText("");
     }
 
-    public float Execute() {
+    public float Execute() throws NumberFormatException{
         if (co("*",Operando))
             return Operador1 * Operador2;
         if (co("/",Operando))
         {
             if (Operador2 == 0.0f) {
-                advice.setText(R.string.syntax_error);
-                return 0;
+                throw new NumberFormatException("0 Division");
             } else
                 return Operador1 / Operador2;
         }
@@ -42,5 +41,30 @@ public class Estructure {
 
     public static boolean co (String st, String st2) {
         return st.equals(st2);
+    }
+
+    static boolean IsNumeric(String f) {
+        try {
+            Integer.parseInt(f);
+            return true;
+        } catch (NumberFormatException ex) {
+            if (f.equals(".")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    static boolean IsOperation(String op) {
+        try {
+            if (op.equals(".") || op.equals("") || op.equals("=")) {
+                return false;
+            }
+             Float.parseFloat(op);
+             return false;
+        } catch (Exception ex) {
+            return true;
+        }
     }
 }

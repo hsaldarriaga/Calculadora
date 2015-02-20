@@ -1,33 +1,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin" tools:context=".calculadora"
+    android:layout_height="match_parent" tools:context=".calculadora"
     android:background="@drawable/background_color">
 
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="40dp"
+        android:layout_height="fill_parent"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/NumericOuput"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textIsSelectable="true"
+        android:layout_above="@+id/advice"
         android:gravity="end"
         android:background="@color/silver"
         android:text="@string/default_output"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:text=""
+        android:id="@+id/advice"
+        android:layout_above="@+id/buttons"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true" />
 
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/NumericOuput"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingTop="10dp"
+        android:layout_alignParentBottom="true"
         android:id="@+id/buttons">
 
         <TableRow
@@ -39,7 +44,7 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:id="@+id/imageButton"
                 android:src="@drawable/ic_action_backspace"
                 android:background="#00000000"
@@ -56,7 +61,7 @@
                 android:text="9"
                 android:id="@+id/bt9"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_numbers_free"
                 android:tag="num" />
 
@@ -66,9 +71,9 @@
                 android:text="8"
                 android:id="@+id/bt8"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_numbers_free"
-                android:tag="num"/>
+                android:tag="num" />
 
             <Button
                 android:layout_width="0dp"
@@ -76,7 +81,7 @@
                 android:text="7"
                 android:id="@+id/bt7"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_numbers_free"
                 android:tag="num"/>
 
@@ -86,7 +91,7 @@
                 android:text="+"
                 android:id="@+id/btplus"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_operation_free"
                 android:tag="op"/>
         </TableRow>
@@ -101,7 +106,7 @@
                 android:text="6"
                 android:id="@+id/bt6"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_numbers_free"
                 android:tag="num"/>
 
@@ -111,7 +116,7 @@
                 android:text="5"
                 android:id="@+id/bt5"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_numbers_free"
                 android:tag="num"/>
 
@@ -121,7 +126,7 @@
                 android:text="4"
                 android:id="@+id/b4"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_numbers_free"
                 android:tag="num"/>
 
@@ -131,7 +136,7 @@
                 android:text="-"
                 android:id="@+id/btminus"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_operation_free"
                 android:tag="op"/>
         </TableRow>
@@ -146,7 +151,7 @@
                 android:text="3"
                 android:id="@+id/bt3"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_numbers_free"
                 android:tag="num"/>
 
@@ -156,7 +161,7 @@
                 android:text="2"
                 android:id="@+id/bt2"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_numbers_free"
                 android:tag="num"/>
 
@@ -166,7 +171,7 @@
                 android:text="1"
                 android:id="@+id/bt1"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_numbers_free"
                 android:tag="num"/>
 
@@ -176,7 +181,7 @@
                 android:text="*"
                 android:id="@+id/btmult"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_operation_free"
                 android:tag="op"/>
         </TableRow>
@@ -191,7 +196,7 @@
                 android:text="/"
                 android:id="@+id/btdiv"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_operation_free"
                 android:tag="op"/>
 
@@ -201,7 +206,7 @@
                 android:text="0"
                 android:id="@+id/bt0"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_numbers_free"
                 android:tag="num"/>
 
@@ -211,7 +216,7 @@
                 android:text="."
                 android:id="@+id/btdot"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_operation_free"
                 android:tag="op"/>
 
@@ -221,22 +226,11 @@
                 android:text="="
                 android:id="@+id/btanswer"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="20sp" android:gravity="center_vertical|center_horizontal"
                 android:background="@drawable/button_operation_free"
                 android:tag="resu"/>
         </TableRow>
 
     </TableLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/white"
-        android:text=""
-        android:id="@+id/advice"
-        android:layout_below="@+id/buttons"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentLeft="true"/>
 
 </RelativeLayout>
