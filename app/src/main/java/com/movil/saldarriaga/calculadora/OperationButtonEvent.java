@@ -35,15 +35,17 @@ public class OperationButtonEvent extends ButtonEvent implements View.OnTouchLis
                     }
                 } else {
                     try {
-                        if (!est.Operando.equals("")) {
-                            est.Operador2 = Float.parseFloat(btText);
-                            est.Operador1 = est.Execute();
-                            out.setText(est.Operador1 + "");
-                        } else {
-                            est.Operador1 = Float.parseFloat(btText);
+                        if (!ButtonEvent.IsNumeric(est.getLast())) {
+                            if (!est.Operando.equals("")) {
+                                est.Operador2 = Float.parseFloat(btText);
+                                est.Operador1 = est.Execute();
+                                out.setText(est.Operador1 + "");
+                            } else {
+                                est.Operador1 = Float.parseFloat(btText);
+                            }
+                            est.setLast(bt.getText().toString());
+                            est.Operando = bt.getText().toString();
                         }
-                        est.setLast(bt.getText().toString());
-                        est.Operando = bt.getText().toString();
                     } catch (Exception ex) {
                         est.advice.setText(R.string.syntax_error);
                     }
